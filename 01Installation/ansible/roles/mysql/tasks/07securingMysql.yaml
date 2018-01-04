@@ -29,9 +29,10 @@
   shell: >
     mysql --connect-expired-password -u root -p{{temp_root_passwd}} -NBe 
     'ALTER USER USER() IDENTIFIED BY "{{root_passwd}}";'
-- name: Copy user-my.cnf file with password credentials.
-  template:
-    src: "user-my.cnf.j2"
-    dest: "/home/{{ osadmin }}/.my.cnf"
-    owner: "{{ osadmin }}"
-    mode: 0600
+# 아래는 passwd를 my.cnf에 plain text로 넣기 때문에 좋지 않고, terminal에 들어가서 mysql_config_editor를 쓰는 것이 좋다.
+#- name: Copy user-my.cnf file with password credentials.
+#  template:
+#    src: "user-my.cnf.j2"
+#    dest: "/home/{{ osadmin }}/.my.cnf"
+#    owner: "{{ osadmin }}"
+#    mode: 0600
