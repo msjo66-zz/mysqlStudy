@@ -7,3 +7,9 @@
     group: root
     mode: 0644
   become: true
+- name: disable firewalld
+  service:
+    name: firewalld
+    state: stopped
+    enabled: false
+  become: true
