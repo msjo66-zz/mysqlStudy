@@ -17,3 +17,5 @@ osadmin: minsoojo
 vaultName: minschoVault
 secretName: mysqlRoot
 #mongouser_pubkey: /Users/minsoojo/.ssh/minscho_ebay.com.pub
+
+nofilelimit: 5120
