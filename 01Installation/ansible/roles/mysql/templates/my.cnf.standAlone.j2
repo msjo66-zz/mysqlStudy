@@ -18,6 +18,7 @@ sql_mode = {{ mysql_sql_mode }}
 explicit-defaults-for-timestamp = on
 disable-partition-engine-check = true
 innodb_buffer_pool_size = {{(ansible_memory_mb.real.total*0.7*1024*1024)|round|int}}
+innodb_buffer_pool_instances = {{(ansible_memory_mb.real.total*0.7/1024)|round(1,'ceil')|int}}
 
 # Logging configuration.
 {% if mysql_log_error == 'syslog' or mysql_log == 'syslog' %}
